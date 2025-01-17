@@ -1,15 +1,26 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <NewList />
+    <form name="login-form" @submit.prevent="login(user)">
+      <label for="username">Enter Username</label>
+      <input type="text" v-model="user.username" />
+      <label for="password">Enter Password</label>
+      <input type="text" v-model="user.password" />
+      <button class="submit-button" type="submit">Login</button>
+    </form>
+    <h2 v-if="skibidi">Mark Fridlan</h2>
+    <h2 v-else>Mark Fridl-Fam</h2>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+<script setup>
+import NewList from '../components/NewList.vue'
+import { reactive } from 'vue'
+const user = reactive({ username: '', password: '' })
+function login(user) {
+  console.log(user)
 }
-</style>
+const skibidi = false
+</script>
+
+<style scoped></style>
