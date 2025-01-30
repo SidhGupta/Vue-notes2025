@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <h1 class="text-3xl font-bold underline">Hello world!</h1>
+  <h1 class="text-3xl font-bold underline bg-red-500">Hello world!</h1>
   <div class="card bg-base-100 w-96 shadow-xl">
     <figure>
       <img
