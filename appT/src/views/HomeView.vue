@@ -10,6 +10,8 @@ const animals = [
 <template>
   <main>
     <LogIn message="Hello World" :count="5"><h1>Hello Laith</h1></LogIn>
-    <AnimalCard v-for="animal in animals" :key="animal.name" :animal="animal" />
+    <AnimalCard v-for="animal in animals" :key="animal.name" :animal="animal"
+      ><button @click="console.log(animal)">Add to Cart</button></AnimalCard
+    >
   </main>
 </template>
