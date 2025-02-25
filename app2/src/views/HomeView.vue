@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import AnimalCard from "../components/AnimalCard.vue"
 const count = ref(7)
 const user = ref('')
 function increment() {
