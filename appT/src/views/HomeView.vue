@@ -1,17 +1,23 @@
+<template>
+  <div>
+    <div class="card" v-for="(mon, index) in pokemon" :key="mon.name">
+      <h2>{{ mon.name }}</h2>
+      <h3>{{ index + 1 }}</h3>
+    </div>
+  </div>
+</template>
+
 <script setup>
-import LogIn from "../components/LogIn.vue";
-import AnimalCard from "../components/AnimalCard.vue";
-const animals = [
-  { name: "Capybara", image: "/capy.jpg" },
-  { name: "Walrus", image: "/walrus.webp" },
-];
+import { ref, onMounted } from "vue";
+const pokemon = ref("");
+async function getPokemon() {
+  let res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
+  let data = await res.json();
+  pokemon.value = data.results;
+}
+onMounted(() => {
+  getPokemon();
+});
 </script>
 
-<template>
-  <main>
-    <LogIn message="Hello World" :count="5"><h1>Hello Laith</h1></LogIn>
-    <AnimalCard v-for="animal in animals" :key="animal.name" :animal="animal"
-      ><button @click="console.log(animal)">Add to Cart</button></AnimalCard
-    >
-  </main>
-</template>
+<style scoped></style>
